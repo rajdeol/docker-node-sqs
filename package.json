@@ -1,0 +1,23 @@
+{
+  "name": "node_sqs_consumer",
+  "version": "1.0.0",
+  "description": "Simple AWS SQS consumer",
+  "author": "Rajinder Deol",
+  "main": "index.js",
+  "engines": {
+    "node": "8.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "write": "node write_message.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.299.0",
+    "sqs-consumer": "^3.8.0",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

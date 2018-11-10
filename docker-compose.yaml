@@ -1,0 +1,30 @@
+version: '3'
+services:
+  # ElasticMQ to run SQS like interface on local for development
+  # https://github.com/adamw/elasticmq
+  # On production AWS SQS will be used
+  sqs:
+    build: docker/elasticmq
+    ports:
+      - "9324:9324"
+
+  my-sqs-consumer:
+      build: .
+      command: [ "npm", "run", "start:dev" ]
+      restart: always
+      depends_on:
+        - sqs
+      links:
+        - sqs:sqs
+      volumes:
+        - .:/usr/src/app
+      environment:
+        - APP_SERVICES_DIR=/usr/src/app/services/
+        - SQS_ACCESS_KEY=asdf
+        - SQS_SECRET_KEY=asdf
+        - SQS_REGION=elasticmq
+        - SQS_QUEUE_NAME=MY_SQS_QUEUE
+        - SQS_QUEUE_URL=http://sqs:9324/queue/MY_SQS_QUEUE
+        - SQS_VISIBILITY_TIMEOUT=100
+        - SQS_API_VERSION=2012-11-05
+        - TZ=Australia/Sydney
