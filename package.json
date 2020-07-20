@@ -13,11 +13,11 @@
     "write": "node write_message.js"
   },
   "dependencies": {
-    "aws-sdk": "^2.299.0",
-    "sqs-consumer": "^3.8.0",
-    "winston": "^3.0.0"
+    "aws-sdk": "^2.715.0",
+    "sqs-consumer": "^5.4.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^2.0.4"
   }
 }
