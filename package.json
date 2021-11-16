@@ -13,7 +13,7 @@
     "write": "node write_message.js"
   },
   "dependencies": {
-    "aws-sdk": "^2.715.0",
+    "aws-sdk": "^2.814.0",
     "sqs-consumer": "^5.4.0",
     "winston": "^3.3.3"
   },
